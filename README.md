@@ -1,6 +1,6 @@
 # Business Entity Resolution
 
-An end-to-end record-linkage pipeline for the Amazon ML Challenge 2026. The system links noisy business records from sources S2 and S3 to reference entities in S1, while allowing distractor records to remain unmatched. Evaluation uses macro F0.5, so precision is weighted more heavily than recall.
+The system links noisy business records from sources S2 and S3 to reference entities in S1, while allowing distractor records to remain unmatched. Evaluation uses macro F0.5, so precision is weighted more heavily than recall.
 
 ## Pipeline
 
@@ -12,16 +12,7 @@ An end-to-end record-linkage pipeline for the Amazon ML Challenge 2026. The syst
 6. **Score and assign** each S2/S3 query to its highest-probability S1 candidate when it clears the model threshold.
 7. **Write and validate** `matching_results.tsv` and `candidate_pairs.tsv`.
 
-The detailed rules, constants, and comparisons are documented in [V5_MODEL_SPEC.md](V5_MODEL_SPEC.md).
-
-## Results
-
-| Model | Validation macro F0.5 | Precision | Recall | Blocking recall ceiling | Threshold |
-|---|---:|---:|---:|---:|---:|
-| v5 seen-country model | **0.98253** | 0.99586 | 0.95773 | 0.9808 | 0.75 |
-| v5 unseen-country proxy (LOCO average) | **0.949** | — | — | — | 0.90 |
-
-LOCO scores for the label-free model are 0.9621 for India→US and 0.9358 for US→India. A v5 leaderboard score was not available when the model specification was written.
+The detailed rules, constants, and comparisons are documented.
 
 ## Repository layout
 
